@@ -23,5 +23,4 @@ public:
 
 private:
     sf::RenderWindow window;
-    sf::Event event = sf::Event();
 };

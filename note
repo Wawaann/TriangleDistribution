@@ -1,0 +1,15 @@
+cd external/SFML
+mkdir build && cd build
+
+cmake -B . -DCMAKE_POSITION_INDEPENDENT_CODE=ON .. \
+           -DSFML_BUILD_NETWORK=OFF \
+           -DSFML_BUILD_AUDIO=OFF \
+           -DCMAKE_INSTALL_PREFIX=$HOME/sfml
+
+cmake --build .
+
+cd lib
+
+ln -s libsfml-graphics-s.a libsfml-graphics.so
+ln -s libsfml-window-s.a libsfml-window.so
+ln -s libsfml-system-s.a libsfml-system.so

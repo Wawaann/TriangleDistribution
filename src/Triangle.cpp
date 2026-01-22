@@ -11,7 +11,8 @@ bool isInside(Point A, Point B, Point C, Point M)
     int Qb = Det(B, C, M);
     int Qc = Det(C, A, M);
 
-    if ((Qa >= 0 && Qb >= 0 && Qc >= 0) || (Qa <= 0 && Qb <= 0 && Qc <= 0)) {
+    if ((Qa >= 0 && Qb >= 0 && Qc >= 0) || (Qa <= 0 && Qb <= 0 && Qc <= 0))
+    {
         return true;
     }
     return false;
@@ -21,30 +22,42 @@ Triangle::Triangle(int ac, char **av)
 {
     std::srand(std::time(nullptr));
 
-    if (ac > 7) {
+    if (ac > 7)
+    {
         std::cerr << "Usage: " << av[0] << " -p <points> -t <time>" << std::endl;
         exit(1);
     }
-    if (ac == 2 && std::string(av[1]) == "-h") {
+
+    if (ac == 2 && std::string(av[1]) == "-h")
+    {
         std::cout << "Usage: " << av[0] << " -p <points> -t <time>" << std::endl << "\t-p <points>: number of points to draw on, default 100" << std::endl << "\t-t <time>: time to wait between each point (in ms), default 50ms" << std::endl;
         exit(0);
     }
-    try {
-        for (int i = 1; i < ac; i++) {
-            if (std::string(av[i]) == "-p") {
+
+    try
+    {
+        for (int i = 1; i < ac; i++)
+        {
+            if (std::string(av[i]) == "-p")
+            {
                 this->point_number = std::stoi(av[i + 1]);
             }
-            if (std::string(av[i]) == "-t") {
+            if (std::string(av[i]) == "-t")
+            {
                 this->timer = std::stod(av[i + 1]);
             }
-            if (std::string(av[i]) == "-s") {
+            if (std::string(av[i]) == "-s")
+            {
                 this->size = std::stod(av[i + 1]);
             }
         }
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         std::cerr << "Usage: " << av[0] << " -p <points> -t <time>" << std::endl << "\t-p <points>: number of points to draw on, default 100" << std::endl << "\t-t <time>: time to wait between each point (in ms), default 50ms" << std::endl;
         exit(1);
     }
+
     this->points =  {Point(200 * this->size, 25 * this->size), Point(12.36 * this->size, 350 * this->size), Point(387.64 * this->size, 350 * this->size)};
 }
 
@@ -53,7 +66,8 @@ void Triangle::generateRandomPoint()
     int x = (points[2].x - points[1].x + 1) * 1000;
     int y = (points[1].y - points[0].y + 1) * 1000;
 
-    while (!isInside(points[0], points[1], points[2], M)) {
+    while (!isInside(points[0], points[1], points[2], M))
+    {
         this->M = Point((std::rand() % x + (points[1].x * 1000)) / 1000, (std::rand() % y + (points[0].y * 1000)) / 1000);
     }
     // M = Point(200, 255);

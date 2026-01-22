@@ -19,16 +19,17 @@ int main(int ac, char **av)
 
     int counter = 0;
 
-    while (sfml.getWindow().isOpen()) {
-
+    while (sfml.getWindow().isOpen())
+    {
         time = clock.getElapsedTime(); 
         seconds = time.asMilliseconds();
         // std::cout << counter << std::endl;
         sfml.analyseEvent();
 
-        if (seconds > triangle.getTimer()) {
-
-            if (counter < triangle.getPointNumber()) {
+        if (seconds > triangle.getTimer())
+        {
+            if (counter < triangle.getPointNumber())
+            {
                 triangle.addNewPoint();
                 counter++;
             }
