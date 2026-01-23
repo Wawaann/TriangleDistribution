@@ -1,11 +1,13 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
 #include "./Triangle.hpp"
 
-constexpr unsigned short SCREEN_WIDTH = 400;
-constexpr unsigned short SCREEN_HEIGHT = 400;
+# define SCREEN_WIDTH 400
+# define SCREEN_HEIGHT 400
 
 
 class SFML

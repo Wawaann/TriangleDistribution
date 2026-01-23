@@ -1,4 +1,4 @@
-/.vscode
 src/*.o
 Triangle
 .idea
+.vscode

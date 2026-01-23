@@ -30,7 +30,10 @@ Triangle::Triangle(int ac, char **av)
 
     if (ac == 2 && std::string(av[1]) == "-h")
     {
-        std::cout << "Usage: " << av[0] << " -p <points> -t <time>" << std::endl << "\t-p <points>: number of points to draw on, default 100" << std::endl << "\t-t <time>: time to wait between each point (in ms), default 50ms" << std::endl;
+        std::cout << "Usage: " << av[0] << " -p <points> -t <time>" << std::endl
+            << "\t-p <points>: number of points to draw on, default 100" << std::endl
+            << "\t-t <time>: time to wait between each point (in ms), default 50ms" << std::endl 
+            << "\t-s: Sets the scale of the window. Default scale is 1, with a window size of 600x600.";
         exit(0);
     }
 

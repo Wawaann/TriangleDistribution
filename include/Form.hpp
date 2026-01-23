@@ -9,15 +9,15 @@
 
 # include <SFML/Graphics.hpp>
 
+# define DEFAULT_POINTS_NUMBER 500
+# define DEFAULT_TIMER 50.0f
+# define DEFAULT_SIZE 1.0f
+
 typedef struct Point
 {
 	double x;
 	double y;
 	sf::Color color;
-
-	Point( void )
-	{
-	}
 
 	Point(double i_x, double i_y, sf::Color i_color) : x(i_x), y(i_y), color(i_color)
 	{
@@ -47,32 +47,18 @@ typedef struct Point
 // point B = (12.36, 350)
 // point C = (387.64 , 137.5)
 
-class Triangle
+class Form
 {
 public:
-	Triangle(int ac, char **av);
-	~Triangle() = default;
-
-	void generateRandomPoint();
-	Point calcNewPoint(Point A, Point B);
-	int pickRandomPoint();
-
-	void addNewPoint();
-
-	Point getM() { return M; };
-	std::array<Point, 3> getPoints() { return points; };
-	std::vector<Point> getPointsVector() { return points_vector; };
-	int getPointNumber() { return point_number; };
-	double getTimer() { return timer; };
-	double getSize() { return size; };
+	Form( int, char** );
+	~Form( void );
 
 private:
-	std::array<Point, 3> points;
-	Point M = Point(0, 0);
-
-	std::vector<Point> points_vector;
-
-	int point_number = 500;
-	double timer = 50.0f;
-	double size = 1.0f;
+    unsigned int        _corners = 3;
+    unsigned int        _point_number = DEFAULT_POINTS_NUMBER;
+    unsigned int        _timer = DEFAULT_TIMER;
+    unsigned int        _size = DEFAULT_SIZE;
+    
+	std::vector<Point>	_formPoints;
+	std::vector<Point>	_points;
 };
